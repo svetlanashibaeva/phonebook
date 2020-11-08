@@ -1,7 +1,8 @@
 import React from 'react';
 
-const ContactItem = ({contactItem}) => {
-    const {name, tel} = contactItem;
+const ContactItem = ({contactItem, onDelete}) => {
+    
+    const {name, tel, id} = contactItem;
     return (
         <>
             <div className="list-item">
@@ -13,7 +14,8 @@ const ContactItem = ({contactItem}) => {
                 <div className="icons">
                     <button 
                         type="button"
-                        className="btn-star btn-sm">
+                        className="btn-star btn-sm"
+                        onClick = {() => onDelete(id)}>
                         <i className="fa fa-trash-o"></i>
                     </button>
                 </div>

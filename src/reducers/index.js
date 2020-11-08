@@ -21,17 +21,21 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'ADD_CONTACT':
-            const newId = state.contacts[state.contacts.length-1] + 1;
+            const newContact = {
+                id: Math.floor(1 + Math.random() * 10000),
+                name: action.name,
+                tel: action.tel
+            }
             return {
-                contacts: state.contacts.concat(newId),
-                contactsById: {
-                    ...state.contactsById,
-                    [newId]: {
-                        id: newId,
-                        name: action.name,
-                        tel: action.tel
-                    }
-                }
+                contacts: [...state.contacts, newContact]
+            }
+        case 'DELETE_CONTACT':
+            const index = state.contacts.findIndex(contact => contact.id === action.id);
+            return {
+                contacts: [
+                    ...state.contacts.slice(0, index),
+                    ...state.contacts.slice(index + 1)
+                ]
             }
         default:
             return state;
