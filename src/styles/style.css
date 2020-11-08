@@ -1,0 +1,102 @@
+.container {
+    margin: 0 auto;
+    width: 550px;
+    background: #ddd;
+    padding: 0 20px 20px 20px;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 36px;
+    color: #444;
+    text-align: center;
+    padding-top: 30px;
+    font-weight: bold;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.header button {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.search {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.list {
+    margin-top: 20px;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.name-contact {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.number {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.56);
+    top: 0;
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    background-color: #f2f2f2;
+    padding: 38px 40px 40px 40px;
+}
+.modal-close {
+        position: absolute;
+        top: 0;
+        right: -40px;
+        font-size: 41px;
+        line-height: 21px;
+        color: #000;
+        cursor: pointer;
+}
+
+.form-add {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form-add input {
+    height: 30px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    border: none;
+    padding: 0 20px;
+    color: #4b4b4b;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.button-add {
+    cursor: pointer;
+    height: 30px;
+}
+
