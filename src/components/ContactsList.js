@@ -2,20 +2,23 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import ContactItem from './ContactItem';
 import {deleteContact} from '../actions';
-// import Hoc from './Hoc';
-// import Modal from './Modal';
+
 
 class ContactList extends Component {
 
     render() {
-        const {contacts, deleteContact} = this.props;
+        const {contacts, deleteContact, filter} = this.props;
+
+        const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().indexOf(filter) === 0);
         return (
             <>
                 <div className="list">
                 {
-                    contacts.map(contactItem => {
+                    filteredContacts.length > 0 ?
+                    filteredContacts.map(contactItem => {
                        return <ContactItem key={contactItem.id} contactItem={contactItem} onDelete={deleteContact}/>
-                    })
+                    }) : <div>Нет результатов</div>
+
                 }    
                 </div>
                 
@@ -24,9 +27,10 @@ class ContactList extends Component {
     }
 }
 
-const mapStateToProps = ({contacts}) => {
+const mapStateToProps = ({contacts, filter}) => {
     return {
-        contacts: contacts
+        contacts,
+        filter
     }
 };
 

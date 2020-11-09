@@ -9,8 +9,17 @@ const addContact = (name, tel) => {
 const deleteContact = (id) => {
     return {
         type: 'DELETE_CONTACT',
-        id: id
+        id
     };
-}
+};
 
-export {addContact, deleteContact};
+const searchContact = (filter) => {
+    return {
+        type: 'SEARCH_CONTACT',
+        filter
+    };
+};
+
+
+
+export {addContact, deleteContact, searchContact};

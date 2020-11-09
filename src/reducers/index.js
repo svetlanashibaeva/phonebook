@@ -2,20 +2,21 @@ const initialState = {
     contacts: [
         {
             id: 1,
-            name: 'Igor',
+            name: 'Муж',
             tel: '89223674836'
         },
         {
             id: 2,
-            name: 'Mama',
+            name: 'Мама',
             tel: '89223635836'
         },
         {
             id: 3,
-            name: 'Katya',
+            name: 'Катя',
             tel: '89223635898'
         }
-    ]
+    ],
+    filter: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,15 +28,25 @@ const reducer = (state = initialState, action) => {
                 tel: action.tel
             }
             return {
+                ...state,
                 contacts: [...state.contacts, newContact]
             }
         case 'DELETE_CONTACT':
             const index = state.contacts.findIndex(contact => contact.id === action.id);
             return {
+                ...state,
                 contacts: [
                     ...state.contacts.slice(0, index),
                     ...state.contacts.slice(index + 1)
                 ]
+            }
+        case 'SEARCH_CONTACT':
+            // const name = action.name.toLowerCase();
+            // const find = state.contacts.filter(contact => contact.name.toLowerCase().indexOf(name) === 0);
+
+            return {
+                ...state,
+                filter: action.filter.toLowerCase()
             }
         default:
             return state;
