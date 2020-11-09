@@ -14,7 +14,7 @@ const ContactItem = ({contactItem, onDelete}) => {
                 <div className="icons">
                     <button 
                         type="button"
-                        className="btn-star btn-sm"
+                        className="btn"
                         onClick = {() => onDelete(id)}>
                         <i className="fa fa-trash-o"></i>
                     </button>

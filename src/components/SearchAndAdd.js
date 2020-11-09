@@ -17,7 +17,7 @@ class SearchAndAdd extends Component {
                     <input type="text" className="search" placeholder="Найти контакт..." onChange={(e) => searchContact(e.target.value)}/>
                     <button 
                         type="button"
-                        className="btn-star btn-sm"
+                        className="btn"
                         onClick = {() => this.showModal()}>
                         <i className="fa fa-user-plus"></i>
                     </button>

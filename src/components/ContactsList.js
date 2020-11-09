@@ -17,7 +17,7 @@ class ContactList extends Component {
                     filteredContacts.length > 0 ?
                     filteredContacts.map(contactItem => {
                        return <ContactItem key={contactItem.id} contactItem={contactItem} onDelete={deleteContact}/>
-                    }) : <div>Нет результатов</div>
+                    }) : <div className="no-res">Нет результатов</div>
 
                 }    
                 </div>
