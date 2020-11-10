@@ -19,14 +19,15 @@ class Modal extends Component{
         e.preventDefault();
         const {addContact, contacts} = this.props;
      
-        const inputName = document.querySelector('#input-name').value.toLowerCase();
+        const inputName = document.querySelector('#input-name').value;
         const inputPhone = document.querySelector('#input-phone').value;
         const warn = document.querySelector('.warn');
+        const nameLowerCase = inputName.toLowerCase();
 
         if (inputName === '' || inputPhone === '') {
             warn.textContent = "Заполните все поля!";
             warn.style.display = "block";
-        } else if (contacts.find(contact => contact.name.toLowerCase() === inputName || contact.tel === inputPhone) !== undefined) { 
+        } else if (contacts.find(contact => contact.name.toLowerCase() === nameLowerCase || contact.tel === inputPhone) !== undefined) { 
             warn.textContent = "Такой контакт уже существует";
             warn.style.display = "block";
         } else {
