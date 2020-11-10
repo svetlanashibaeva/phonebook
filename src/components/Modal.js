@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {addContact} from '../actions';
+import { addContact } from '../actions';
 
 class Modal extends Component{
 
@@ -12,25 +12,23 @@ class Modal extends Component{
         document.querySelector('.overlay').style.display = 'none';
         document.querySelector('#input-name').value = '';
         document.querySelector('#input-phone').value = '';
-        document.querySelector('.form-add').removeChild(document.querySelector('.warn'));
+        document.querySelector('.warn').style.display = "none";
     };
 
     addNewContact(e) {
         e.preventDefault();
         const {addContact, contacts} = this.props;
-        
-        const inputName = document.querySelector('#input-name').value;
+     
+        const inputName = document.querySelector('#input-name').value.toLowerCase();
         const inputPhone = document.querySelector('#input-phone').value;
-
-        let div = document.createElement('div');
-        div.classList.add('warn');
+        const warn = document.querySelector('.warn');
 
         if (inputName === '' || inputPhone === '') {
-            div.textContent = "Заполните поля формы!";
-            document.querySelector('.form-add').appendChild(div);
-        } else if (contacts.find(contact => contact.name === inputName || contact.tel === inputPhone) !== undefined) { 
-            div.textContent = "Такой контакт уже существует";
-            document.querySelector('.form-add').appendChild(div);
+            warn.textContent = "Заполните все поля!";
+            warn.style.display = "block";
+        } else if (contacts.find(contact => contact.name.toLowerCase() === inputName || contact.tel === inputPhone) !== undefined) { 
+            warn.textContent = "Такой контакт уже существует";
+            warn.style.display = "block";
         } else {
             addContact(inputName, inputPhone);
             this.closeModal();
@@ -47,38 +45,35 @@ class Modal extends Component{
                 value = inputPhone.value.replace(/\D/g, '');
         
             if (def.length >= value.length) {
-                value = def;
+                if (value === '7' || value === '8') {
+                    value = '7';
+                } else {
+                    value = `7${value}`;
+                }
             }
 
             inputPhone.value = matrix.replace(/./g, function(a) {
                 return /[_\d]/.test(a) && i < value.length ? value.charAt(i++) : i >= value.length ? '' : a;
             });
-    
-            if (e.type === 'blur') {
-                if (inputPhone.value.length == 2) {
-                    inputPhone.value = '';
-                }
-            } else {
-                setCursorPosition(inputPhone.value.length)
-            }
         });
     };
 
     render() {
         return (
             <>
-            <div className="overlay">
-                <div className="modal">
-                    <div className="modal-close" onClick={() => this.closeModal()}>&times;</div>
-                    <form className="form-add" action="#">
-                        <input name="name" id="input-name" type="text" placeholder="Введите имя" />
-                        <input name="phone" id="input-phone" placeholder="Введите телефон" />
-                        <button 
-                            className="btn button-add" 
-                            onClick={(e) => this.addNewContact(e)}> Добавить</button>
-                    </form>
+                <div className="overlay">
+                    <div className="modal">
+                        <div className="modal-close" onClick={() => this.closeModal()}>&times;</div>
+                        <form className="form-add" action="#">
+                            <input name="name" id="input-name" type="text" placeholder="Введите имя" />
+                            <input name="phone" id="input-phone" placeholder="Введите телефон" />
+                            <button 
+                                className="btn button-add" 
+                                onClick={(e) => this.addNewContact(e)}>Добавить</button>
+                            <div className="warn"></div>
+                        </form>
+                    </div>
                 </div>
-            </div>
             </>
         )
     }  

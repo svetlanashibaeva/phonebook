@@ -41,9 +41,6 @@ const reducer = (state = initialState, action) => {
                 ]
             }
         case 'SEARCH_CONTACT':
-            // const name = action.name.toLowerCase();
-            // const find = state.contacts.filter(contact => contact.name.toLowerCase().indexOf(name) === 0);
-
             return {
                 ...state,
                 filter: action.filter.toLowerCase()

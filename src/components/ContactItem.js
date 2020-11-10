@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ContactItem = ({contactItem, onDelete}) => {
-    
     const {name, tel, id} = contactItem;
     return (
         <>

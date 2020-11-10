@@ -60,11 +60,13 @@ h1 {
 .name-contact {
     font-size: 20px;
     font-weight: bold;
+    color: #444;
 }
 
 .number {
     font-size: 16px;
     margin-top: 10px;
+    color: #444;
 }
 
 .overlay {
@@ -82,23 +84,22 @@ h1 {
     transform: translate(-50%, -50%);
     width: 380px;
     background-color: #f2f2f2;
-    padding: 38px 40px 40px 40px;
+    padding: 20px;
     border-radius: 4px;
 }
 .modal-close {
-        position: absolute;
-        top: 0;
-        right: -40px;
-        font-size: 41px;
-        line-height: 21px;
-        color: #fff;
-        cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: -40px;
+    font-size: 41px;
+    line-height: 21px;
+    color: #fff;
+    cursor: pointer;
 }
 
 .form-add {
     display: flex;
     flex-direction: column;
-    width: 300px;
     margin: 0 auto;
 }
 
@@ -149,9 +150,43 @@ h1 {
 }
 
 .warn {
+    display: none;
     text-align: center;
     color: #fb7b3f;
     font-size: 14px;
     font-weight: bold;
     margin-top: 20px;
+}
+
+@media (max-width: 991px) {
+    .container {
+        width: 550px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 400px;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        width: 300px;
+    }
+    h1 {
+        font-size: 26px;
+    }
+    .modal {
+        width: 200px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: 250px;
+    }
+    .modal {
+        width: 180px;
+    }
 }

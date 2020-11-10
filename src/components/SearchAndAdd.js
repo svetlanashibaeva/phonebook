@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {searchContact} from '../actions';
+import { searchContact } from '../actions';
 
 class SearchAndAdd extends Component {
 
@@ -10,7 +10,6 @@ class SearchAndAdd extends Component {
 
     render() {
         const {searchContact} = this.props;
-
         return(
             <>
                 <div className="header">
