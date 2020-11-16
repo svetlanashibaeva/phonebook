@@ -31,7 +31,7 @@ class Modal extends Component{
             warn.textContent = "Такой контакт уже существует";
             warn.style.display = "block";
         } else {
-            addContact(inputName, inputPhone);
+            addContact(inputName, inputPhone, Math.floor(1 + Math.random() * 10000));
             this.closeModal();
         }
     }

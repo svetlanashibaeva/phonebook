@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'ADD_CONTACT':
             const newContact = {
-                id: Math.floor(1 + Math.random() * 10000),
+                id: action.id,
                 name: action.name,
                 tel: action.tel
             }

@@ -1,8 +1,9 @@
-const addContact = (name, tel) => {
+const addContact = (name, tel, id) => {
     return {
         type: 'ADD_CONTACT',
         name,
-        tel
+        tel, 
+        id
     };
 };
 
